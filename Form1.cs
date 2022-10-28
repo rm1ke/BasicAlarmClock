@@ -1,8 +1,11 @@
+using System;
+using System.Media;
+
+
 namespace BasicAlarmClock
 {
     public partial class Form1 : Form
     {
-
         System.Timers.Timer timer;
 
         public Form1()
@@ -27,11 +30,18 @@ namespace BasicAlarmClock
                 UpdateLable upd = updateDateLabel;
                 if (lblStatus.InvokeRequired)
                     Invoke(upd, lblStatus, "Done");
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Code\sounds\chime.wav");
+                player.Play();
                 MessageBox.Show("Ring Ring Ring...", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                /*
+                using (var soundPlayer = new SoundPlayer(@""))
+                {
+                    soundPlayer.Play(); // can also use soundPlayer.PlaySync()
+
+                } */
             }
         }
-
         delegate void UpdateLable(Label lbl, string value);
         void updateDateLabel(Label lbl, string value)
         {
@@ -41,6 +51,7 @@ namespace BasicAlarmClock
         {
             timer.Start();
             lblStatus.Text = "Running...";
+
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -48,5 +59,6 @@ namespace BasicAlarmClock
             timer.Stop();
             lblStatus.Text = "Done";
         }
+
     }
 }

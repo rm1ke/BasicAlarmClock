@@ -40,7 +40,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(94, 29);
             this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "Star&t";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -73,6 +73,7 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 256);
@@ -81,6 +82,7 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.btnStart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
